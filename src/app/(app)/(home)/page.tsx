@@ -3,20 +3,11 @@ import { getPayload } from 'payload'
 
 
 
-export default async function Home() {
-  const payload = await getPayload({
-      config: configPromise,
-    })
+export default function Home() {
 
-  const data = await payload.find({
-     collection:'categories'
-  })
-  // useEffect(()=>{
-  //   console.log("rendered");
-  // }, []);
   return(
     <div>
-      {JSON.stringify(data,null,2)}
+    Home Page
     </div>
 
   )
