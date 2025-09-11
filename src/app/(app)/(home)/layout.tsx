@@ -1,10 +1,12 @@
 
+import { CustomCategory } from './types';
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { Footer } from "./footer";
 import { Navbar } from "./navbar";
 import { SearchFilters } from "./search-filters";
 import { Category } from '@/payload-types';
+
 
 
 interface Props {
@@ -24,19 +26,19 @@ const Layout = async ({children}: Props) => {
         exists: false,
       },
      },
+     sort: "name",
   });
 
-  const formattedData = data.docs.map((doc)=>({
+  const formattedData : CustomCategory[] = data.docs.map((doc)=>({
     ...doc,
     subcategories: (doc.subcategories?.docs ?? []).map((doc)=>({
         //because of depth 1, doc will be category
         ...(doc as Category),
+        subcategories: undefined,
     }))
 
   }));
-  console.log(
-    data, formattedData
-  )
+
     return (
         <div className="flex flex-col min-h-screen">
         <Navbar />
