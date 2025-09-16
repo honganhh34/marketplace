@@ -15,6 +15,7 @@ export const categoriesRouter = createTRPCRouter({
                },
             },
              sort: "name",
+             
          });
 
          const formattedData = data.docs.map((doc)=>({

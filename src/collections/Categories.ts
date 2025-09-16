@@ -38,4 +38,5 @@ export const Categories: CollectionConfig = {
             
         }
     ],
+
 };
