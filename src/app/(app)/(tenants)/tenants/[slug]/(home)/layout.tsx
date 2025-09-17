@@ -1,4 +1,5 @@
 
+
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { getQueryClient, trpc } from '@/trpc/server';
 import { Suspense } from 'react';
@@ -17,7 +18,7 @@ const Layout = async ({children,params}: Props) => {
     const queryClient = getQueryClient();
     void queryClient.prefetchQuery(trpc.tenants.getOne.queryOptions({
         slug,
-    }))
+    }));
     return (
         <div  className='min-h-screen flex flex-col bg-[#F4F4F0]'>
             <HydrationBoundary state={dehydrate(queryClient)}>
