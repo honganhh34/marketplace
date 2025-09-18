@@ -42,8 +42,8 @@ if(data.pages?.[0]?.docs.length===0){
           imageUrl={product.image?.url || "/placeholder.png"}
           tenantSlug={product.tenant?.slug}
           tenantSlugUrl={product.tenant?.image?.url}
-          reviewRating={3}
-          reviewCount={5}
+          reviewRating={product.reviewRating}
+          reviewCount={product.reviewCount}
         />
       ))}
     </div>
