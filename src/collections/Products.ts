@@ -2,6 +2,9 @@
 
  export const Products: CollectionConfig = {
     slug: "products",
+    admin: {
+        useAsTitle: "name",
+    },
     fields: [
         {
             name: "name",
