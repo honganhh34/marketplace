@@ -7,11 +7,6 @@ import { CheckoutMetadata, ProductMetadata } from "../type";
 import { stripe } from "@/lib/stripe";
 import { generateTenantURL } from "@/lib/utils";
 
-
-
-
-
-
 export const checkoutRouter = createTRPCRouter({
     purchase: protectedProcedure
       .input(

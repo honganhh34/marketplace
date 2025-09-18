@@ -15,6 +15,7 @@ import { Categories } from './collections/Categories'
 import { Tenants } from './collections/Tenants'
 import { Config } from './payload-types'
 import { Orders } from './collections/Orders'
+import { Reviews } from './collections/Reviews'
 
 
 
@@ -30,7 +31,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media,Categories, Products, Tags,Tenants, Orders],
+  collections: [Users, Media,Categories, Products, Tags,Tenants, Orders,Reviews],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
