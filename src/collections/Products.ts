@@ -17,6 +17,7 @@ import type { CollectionConfig } from "payload";
     },
     admin: {
         useAsTitle: "name",
+        description:"You must verify your account before adding products"
     },
     fields: [
         {
