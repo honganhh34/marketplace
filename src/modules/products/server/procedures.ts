@@ -25,6 +25,9 @@ export const productsRouter = createTRPCRouter({
             collection: "products",
             id: input.id,
             depth: 2,
+            select: {
+                content: false,
+            }
         });
 
         let isPurchased = false;
@@ -202,7 +205,10 @@ export const productsRouter = createTRPCRouter({
              where,
              sort,
              page:input.cursor,
-             limit:input.limit
+             limit:input.limit,
+             select: {
+                content: false,
+             }
          });
          const dataWithSummarizedRevies = await Promise.all(
             data.docs.map( async (doc) => {
