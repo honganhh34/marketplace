@@ -40,23 +40,32 @@ export const ProductCard = ({
             <Image alt={name} fill src={imageUrl||""} className="object-cover"/>
         </div>
         <div className="p-4 flex flex-col gap-3 flex-1 border-y">
-            <h2 className="text-lg font-medium line-clamp-4">{name}</h2>
-            <div className="flex items-center gap-2" onClick={handleUserClick}>
-                {tenantSlugUrl && (
-                    
-                        <Image alt={tenantSlugUrl} width={16} height={16} src={tenantSlugUrl} className="rounded-full border shrink-0 size-[16px]"/>
-                   
-                )}
-                <p className="text-sm underline font-medium">{tenantSlug}</p>
-            </div>
-            {reviewCount > 0 && (
-                <div className="flex items-center gap-1">
-                    <StarIcon className="size-3.5 fill-black"/>
-                    <p className="text-sm font-medium">{reviewRating}</p>
-                    <p className="text-sm text-gray-500">({reviewCount} reviews)</p>
-                </div>
-            )}
-        </div>
+  <h2 className="text-lg font-medium line-clamp-4">{name}</h2>
+
+  <div className="flex items-center gap-2" onClick={handleUserClick}>
+    {tenantSlugUrl && (
+      <Image
+        alt={tenantSlugUrl}
+        width={16}
+        height={16}
+        src={tenantSlugUrl}
+        className="rounded-full border shrink-0 size-[16px]"
+      />
+    )}
+    <p className="text-sm underline font-medium">{tenantSlug}</p>
+  </div>
+
+  {/* chỉ thêm 1 div wrapper + min-h */}
+  <div className="min-h-[20px]">
+    {reviewCount > 0 && (
+      <div className="flex items-center gap-1 mt-1">
+        <StarIcon className="size-3.5 fill-black" />
+        <p className="text-sm font-medium">{reviewRating}</p>
+        <p className="text-sm text-gray-500">({reviewCount} reviews)</p>
+      </div>
+    )}
+  </div>
+</div>
         <div className="p-4">
             <div className="relative px-2 py-1 border bg-pink-400 w-fit">
                 <p className="text-sm font-medium">
