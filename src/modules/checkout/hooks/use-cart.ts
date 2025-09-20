@@ -17,7 +17,7 @@ export const useCart = (tenantSlug: string) => {
             removeProduct(tenantSlug, productId);
         } else {
             addProduct(tenantSlug, productId);
-        }
+        } 
     }, [addProduct, removeProduct, productIds, tenantSlug]);
 
     const isProductInCart = useCallback( (productId: string) => {
