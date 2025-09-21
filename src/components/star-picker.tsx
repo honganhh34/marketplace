@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 interface StarPickerProps {
-    value: number;
+    value?: number;
     onChange?: (value: number) => void;
     disabled?: boolean;
     className?: string;
