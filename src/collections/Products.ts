@@ -12,7 +12,8 @@ import type { CollectionConfig } from "payload";
             const tenant = req.user?.tenants?.[0]?.tenant as Tenant;
 
             return Boolean(tenant?.stripeDetailsSubmitted);
-        }
+        },
+        delete: ({req}) => isSuperAdmin(req.user),
 
     },
     admin: {
@@ -27,7 +28,7 @@ import type { CollectionConfig } from "payload";
         },
         {
             name: "description",
-            type: "text",
+            type: "richText",
         },
         {
             name: "price",
@@ -68,12 +69,31 @@ import type { CollectionConfig } from "payload";
         },
         {
             name: "content",
-            type: "textarea",
+            type: "richText",
             admin: {
                 description:
                 "Protected content only visible to customers after purchase. Add product documentation, dowloadable files, getting started guieds, and bonus materials. Supports Markdown formatting"
-            }
-        }
+            },
+            
+        },
+        {
+                name: "isPrivate",
+                label: "Private",
+                defaultValue: false,
+                type: "checkbox",
+                admin: {
+                    description: "If checked, this product will not be shown on the public storefront",
+                }
+            },
+        {
+                name: "isArchived",
+                label: "Archive",
+                defaultValue: false,
+                type: "checkbox",
+                admin: {
+                    description: "Check if you want to hide this product",
+                }
+            },
 
     ],
      
